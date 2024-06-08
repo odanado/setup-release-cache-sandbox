@@ -14,6 +14,7 @@ jobs:
         id: kleat
         with:
           repository: spinnaker/kleat
+          tag: v0.6.0
 
       - run: kleat version
       - run: echo "cache ${{ steps.kleat.outputs.restore-from-cache }}"
@@ -24,6 +25,7 @@ jobs:
           repository: open-policy-agent/conftest
           arch: x86_64
           platform: Linux
+          tag: v0.6.0
 
       - run: conftest --help
       - run: echo "cache ${{ steps.conftest.outputs.restore-from-cache }}"
