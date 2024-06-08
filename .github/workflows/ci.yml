@@ -20,5 +20,6 @@ jobs:
         with:
           repository: open-policy-agent/conftest
           arch: x86_64
+          platform: Linux
 
       - run: conftest version
