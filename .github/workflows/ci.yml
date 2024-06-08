@@ -22,4 +22,4 @@ jobs:
           arch: x86_64
           platform: Linux
 
-      - run: conftest version
+      - run: conftest --help
