@@ -11,15 +11,19 @@ jobs:
 
     steps:
       - uses: KeisukeYamashita/setup-release@v1.0.2
+        id: kleat
         with:
           repository: spinnaker/kleat
 
       - run: kleat version
+      - run: echo "cache ${{ steps.kleat.outputs.restore-from-cache }}"
 
       - uses: KeisukeYamashita/setup-release@v1.0.2
+        id: conftest
         with:
           repository: open-policy-agent/conftest
           arch: x86_64
           platform: Linux
 
       - run: conftest --help
+      - run: echo "cache ${{ steps.conftest.outputs.restore-from-cache }}"
