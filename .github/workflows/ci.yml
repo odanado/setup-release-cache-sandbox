@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: KeisukeYamashita/setup-release@v1.0.2
+        with:
+          repository: spinnaker/kleat
+
+      - run: kleat version
+
+      - uses: KeisukeYamashita/setup-release@v1.0.2
+        with:
+          repository: odanado/git-pr-release-go
+          arch: x86_64
+          platform: Linux
+
+      - run: git-pr-release-go version
